@@ -1,0 +1,17 @@
+<div class="kpi-wrapper">
+    <div *ngFor="let metric of kpiDataPercentages | slice:0:maxResults" class="metric">
+        <div class="label" [matTooltip]="metric.label" matTooltipPosition="left">
+            {{metric.label}}:
+        </div>
+        <div class="progress-bar">
+            <mat-progress-bar mode="determinate" [value]="metric.percentage"></mat-progress-bar>
+        </div>
+        <div class="percentage-value">
+            {{metric.percentage}}%
+        </div>
+    </div>
+    <div class="show-more" *ngIf="!showMoreState && kpiDataPercentages.length > maxResults" (click)="showMore()">+ Show more
+    </div>
+    <div class="show-more" *ngIf="showMoreState" (click)="showLess()">- Show less
+    </div>
+</div>

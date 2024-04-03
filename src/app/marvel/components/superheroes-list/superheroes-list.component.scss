@@ -1,0 +1,26 @@
+.table-wrapper {
+    width: 100%;
+
+    table {
+        width: 100%;
+    }
+
+    tr {
+        cursor: pointer;
+    }
+
+    th.mat-sort-header-sorted {
+        color: black;
+    }
+
+    td.actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 55px;
+    }
+}
+
+.kpis-header.mat-mdc-header-cell {
+    vertical-align: top!important;
+}

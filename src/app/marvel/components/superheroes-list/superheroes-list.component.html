@@ -1,0 +1,60 @@
+<div class="table-wrapper">
+    <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        (matSortChange)="announceSortChange($event)"
+        class="mat-elevation-z8"
+    >
+        <!-- Items number subheader -->
+        <ng-container matColumnDef="items-number-subheader">
+            <th mat-header-cell *matHeaderCellDef>
+                <app-records-number [recordsNum]="superheroesList!.length"></app-records-number>
+            </th>
+        </ng-container>
+
+        <!-- Dynamically generated graphic subheaders -->
+        <ng-container *ngFor="let subheader of graphicSubheaders" [matColumnDef]="'graphic-' + subheader.name + '-subheader'">
+            <th mat-header-cell *matHeaderCellDef>
+                <app-graphics-container [data]="superheroesList" [column]="subheader.column"></app-graphics-container>
+            </th>
+        </ng-container>
+
+        <!-- Dynamically generated KPIs subheaders -->
+        <ng-container *ngFor="let subheader of graphicSubheaders" [matColumnDef]="'kpi-' + subheader.name + '-subheader'">
+            <th mat-header-cell *matHeaderCellDef class="kpis-header">
+                <app-kpi [data]="superheroesList" [column]="subheader.column" [maxResults]="4"></app-kpi>
+            </th>
+        </ng-container>
+
+        <!-- Empty subheader -->
+        <ng-container matColumnDef="empty-subheader">
+            <th mat-header-cell *matHeaderCellDef></th>
+        </ng-container>
+
+        <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column | titlePipe }} </th>
+
+            <!-- Regular column definitions -->
+            <ng-container *ngIf="column !== 'actions'">
+                <ng-container *ngIf="column !== 'actions'">
+                    <td mat-cell *matCellDef="let element;">
+                        {{element[column]}}
+                    </td>
+                </ng-container>
+            </ng-container>
+
+            <!-- Custom Actions column where template is defined by parent -->
+            <ng-container *ngIf="column === 'actions'">
+                <mat-cell *matCellDef="let superhero">
+                    <ng-container *ngTemplateOutlet="actionsRef; context: getActionsViewContext(superhero)"></ng-container>
+                </mat-cell>
+            </ng-container>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="subheaderGraphicsContainers" ></tr>
+        <tr mat-header-row *matHeaderRowDef="subheaderKpisContainers" ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="showDetail(row)"></tr>
+    </table>
+</div>

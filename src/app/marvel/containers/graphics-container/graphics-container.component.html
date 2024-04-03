@@ -1,0 +1,4 @@
+<div class="wrapper">
+    <app-graphic-bar-chart *ngIf="graphicData && graphicData.length > 5" [data]="graphicData" [column]="column"></app-graphic-bar-chart>
+    <app-graphic-pie-chart *ngIf="graphicData && graphicData.length <= 5" [data]="graphicData" [column]="column"></app-graphic-pie-chart>
+</div>

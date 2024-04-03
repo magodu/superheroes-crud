@@ -1,0 +1,10 @@
+<h2 mat-dialog-title class="header">Confirm</h2>
+<mat-dialog-content>
+    <div class="container">
+        <p>Are you sure you want to delete this record?</p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button [mat-dialog-close]="false">Cancel</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="true" >Delete</button>
+</mat-dialog-actions>

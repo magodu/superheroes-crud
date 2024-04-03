@@ -1,0 +1,14 @@
+.header {
+    text-align: center;
+}
+
+.superhero-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    min-width: 30rem;
+
+    .full-width {
+        width: 100%;
+    }
+}

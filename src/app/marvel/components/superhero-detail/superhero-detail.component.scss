@@ -1,0 +1,36 @@
+.mat-mdc-dialog-container {
+    min-width: 30rem;
+}
+.header {
+    text-align: center;
+}
+
+.container {
+    min-width: 30rem;
+
+    .list {
+        width: 100%;
+
+        dl {
+            padding: 0 1rem;
+
+            dt {
+                float: left;
+                margin-right: 10%;
+                max-width: 40%;
+                font-weight: bold;
+            }
+
+            dd {
+                margin-left: 50%;
+                margin-bottom: 0.5em;
+
+                &::after {
+                    content: " ";
+                    display: block;
+                    clear: left;
+                }
+            }
+        }
+    }
+}

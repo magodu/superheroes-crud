@@ -1,0 +1,70 @@
+<div class="superhero-wrapper">
+    <h2 mat-dialog-title class="header">{{ title }}</h2>
+
+    <form [formGroup]="superheroForm" (ngSubmit)="send()" class="superhero-form-wrapper">
+        <div class="superhero-form">
+            <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput formControlName="name">
+                <mat-error *ngIf="superheroForm.controls['name'].dirty && superheroForm.controls['name'].invalid">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Skills</mat-label>
+                <input type="text" matInput formControlName="skills">
+                <mat-error *ngIf="superheroForm.controls['skills'].dirty && superheroForm.controls['skills'].invalid">
+                    Skills is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Occupation</mat-label>
+                <input type="text" matInput formControlName="occupation">
+                <mat-error *ngIf="superheroForm.controls['occupation'].dirty && superheroForm.controls['occupation'].invalid">
+                    Occupation is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Member Of</mat-label>
+                <input type="text" matInput formControlName="memberOf">
+                <mat-error *ngIf="superheroForm.controls['memberOf'].dirty && superheroForm.controls['memberOf'].invalid">
+                    Member of is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                </mat-select>
+                <mat-error *ngIf="superheroForm.controls['gender'].dirty && superheroForm.controls['gender'].invalid">
+                    Gender is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Citizenship</mat-label>
+                <input type="text" matInput formControlName="citizenship">
+                <mat-error *ngIf="superheroForm.controls['citizenship'].dirty && superheroForm.controls['citizenship'].invalid">
+                    Citizenship is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Creator</mat-label>
+                <input type="text" matInput formControlName="creator">
+                <mat-error *ngIf="superheroForm.controls['creator'].dirty && superheroForm.controls['creator'].invalid">
+                    Creator is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <mat-dialog-actions align="end">
+            <button mat-stroked-button mat-dialog-close>Cancel</button>
+            <button mat-flat-button color="primary" type="submit" [mat-dialog-close]="superheroForm.value" [disabled]="!superheroForm.valid">Save</button>
+        </mat-dialog-actions>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<div>
+    <form>
+        <mat-form-field class="filter-chip-list" appearance="fill">
+            <mat-label>Filter superheroes</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Superhero selection">
+                <mat-chip-row *ngFor="let hero of superheroes" (removed)="remove(hero)">
+                    {{ hero }}
+                    <button matChipRemove [attr.aria-label]="'remove ' + hero">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip-row>
+            </mat-chip-grid>
+            <input
+                placeholder=""
+                #nameInput
+                [formControl]="nameCtrl"
+                [matChipInputFor]="chipGrid"
+                [matAutocomplete]="auto"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)"
+            />
+            <mat-autocomplete
+                #auto="matAutocomplete"
+                (optionSelected)="selected($event)"
+            >
+                <mat-option
+                    *ngFor="let hero of filteredSuperheroes | async"
+                    [value]="hero"
+                >
+                    {{ hero }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+<h2 mat-dialog-title class="header">Superhero details</h2>
+<mat-dialog-content>
+    <div class="container">
+        <div class="list">
+            <dl>
+                <dt>Name</dt>
+                <dd>{{ data.nameLabel }}</dd>
+                <dt>Skills</dt>
+                <dd>{{ data.skillsLabel }}</dd>
+                <dt>Occupation</dt>
+                <dd>{{ data.occupationLabel }}</dd>
+                <dt>Member of</dt>
+                <dd>{{ data.memberOfLabel }}</dd>
+                <dt>Gender</dt>
+                <dd>{{ data.genderLabel }}</dd>
+                <dt>Citizenship</dt>
+                <dd>{{ data.citizenshipLabel }}</dd>
+                <dt>Creator</dt>
+                <dd>{{ data.creatorLabel }}</dd>
+            </dl>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

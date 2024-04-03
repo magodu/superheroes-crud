@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <app-superheroes-filter [data]="superheroesNameList" (selectedHeroes)="filterItems($event)" ></app-superheroes-filter>
+    <app-superheroes-list [data]="superheroesFilteredList" [displayedColumns]="displayedColumns" (detail)="showDetail($event)">
+        <ng-template let-superhero>
+            <div class="actions">
+                <button mat-mini-fab color="primary" aria-label="Edit" (click)="editSuperhero(superhero); $event.stopPropagation()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="accent" aria-label="Delete" (click)="deleteSuperhero(superhero); $event.stopPropagation()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </ng-template>
+    </app-superheroes-list>
+</div>
